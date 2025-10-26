@@ -1,0 +1,5 @@
+Mod Project that aims to add a support oriented class to terraria.
+
+The class added by this mod will be by design quite useless on its own,
+beign focused of buffing and supporting other player instead of doing damage directly.
+thus filling the void of the "do nothing and dodge class" left by sumonner getting whips

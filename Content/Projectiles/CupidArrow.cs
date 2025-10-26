@@ -1,0 +1,60 @@
+using System;
+using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.Enums;
+using Terraria.ID;
+using Terraria.ModLoader;
+using upstage.Content.Debuffs;
+
+namespace upstage.Content.Projectiles
+{
+    public class CupidArrow : ModProjectile
+    {
+        private bool healed = false;
+
+
+        public const int healAmount = 50;
+
+
+
+        public override void SetDefaults()
+        {
+            Projectile.Size = new Vector2(18); // This sets width and height to the same value (important when projectiles can rotate)
+            Projectile.aiStyle = ProjAIStyleID.Arrow;
+            AIType = ProjectileID.JestersArrow;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.penetrate = -1;
+            Projectile.tileCollide = true;
+            Projectile.scale = 1f;
+            Projectile.DamageType = DamageClass.Ranged;
+            Projectile.ownerHitCheck = true; // Prevents hits through tiles. Most melee weapons that use projectiles have this
+            Projectile.extraUpdates = 0; // Update 1+extraUpdates times per tick
+            Projectile.timeLeft = 360; // This value does not matter since we manually kill it earlier, it just has to be higher than the duration we use in AI
+
+        }
+
+        public override void AI()
+        {
+            Player owner = Main.player[Projectile.owner];
+
+            foreach (Player other in Main.player)
+            {
+                if (other.active && !other.dead && other.whoAmI != owner.whoAmI)
+                {
+                    if (Projectile.Hitbox.Intersects(other.Hitbox) && !healed)
+                    {
+                        other.Heal(healAmount);
+                        owner.AddBuff(ModContent.BuffType<HealingDebuff>(), 3600);
+                        healed = true;
+                        Projectile.Kill();
+                        break;
+                    }
+                }
+            }
+
+            Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;
+        }
+
+    }
+}

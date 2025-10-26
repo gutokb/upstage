@@ -1,0 +1,3 @@
+displayName = Upstage
+author = upstage
+version = 0.2

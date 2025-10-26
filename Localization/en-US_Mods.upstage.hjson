@@ -1,0 +1,100 @@
+UI.Morale: Mods.upstage.UI.Morale
+
+Items: {
+	MoraleResetter: {
+		DisplayName: Morale Resetter
+		Tooltip: Resets your Morale to 0
+	}
+
+	ToughHideVexillum: {
+		DisplayName: Tough Hide Warbanner
+		Tooltip: ""
+	}
+
+	MaimVexillum: {
+		DisplayName: Maim Warbanner
+		Tooltip: ""
+	}
+
+	ReinforcedSlimeBreastplate: {
+		DisplayName: Reinforced Slime Breastplate
+		Tooltip: ""
+	}
+
+	ReinforcedSlimeHelmet: {
+		DisplayName: Reinforced Slime Helmet
+		Tooltip: ""
+	}
+
+	ReinforcedSlimeLeggings: {
+		DisplayName: Reinforced Slime Leggings
+		Tooltip: ""
+	}
+
+	CopperOrb: {
+		DisplayName: Copper Orb
+		Tooltip: parry
+	}
+
+	AcornPendant: {
+		DisplayName: Acorn Pendant
+		Tooltip: conjures a weak sprouting aura
+	}
+
+	CrystalOrb: {
+		DisplayName: Crystal Orb
+		Tooltip: ""
+	}
+
+	CrushedMushrooms: {
+		DisplayName: Crushed Mushrooms
+		Tooltip: ""
+	}
+
+	IntravenousPotion: {
+		DisplayName: Intravenous Potion
+		Tooltip: ""
+	}
+
+	LeavesDraftVexillum: {
+		DisplayName: Leaves Draft Vexillum
+		Tooltip: ""
+	}
+
+	CupidBow: {
+		DisplayName: Cupid Bow
+		Tooltip: ""
+	}
+}
+
+Buffs: {
+	ToughHide: {
+		DisplayName: Tough Hide
+		Description: More health, more defense
+	}
+
+	Maim: {
+		DisplayName: Maim
+		Description: extra damage every few hits
+	}
+
+	SproutingAura: {
+		DisplayName: Sprouting Aura
+		Description: weak damaging aura
+	}
+
+	HealingDebuff: {
+		DisplayName: Healing Debuff
+		Description: Mods.upstage.Buffs.HealingDebuff.Description
+	}
+
+	LeavesDraft: {
+		DisplayName: Leaves Draft
+		Description: Mods.upstage.Buffs.LeavesDraft.Description
+	}
+}
+
+Projectiles: {
+	IVPotionProjectile.DisplayName: I V Potion Projectile
+	CupidArrow.DisplayName: Cupid Arrow
+}
