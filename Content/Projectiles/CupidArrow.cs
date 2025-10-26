@@ -19,7 +19,7 @@ namespace upstage.Content.Projectiles
 
         public override void SetDefaults()
         {
-            Projectile.Size = new Vector2(18); // This sets width and height to the same value (important when projectiles can rotate)
+            Projectile.Size = new Vector2(18); 
             Projectile.aiStyle = ProjAIStyleID.Arrow;
             AIType = ProjectileID.JestersArrow;
             Projectile.friendly = true;
@@ -28,9 +28,9 @@ namespace upstage.Content.Projectiles
             Projectile.tileCollide = true;
             Projectile.scale = 1f;
             Projectile.DamageType = DamageClass.Ranged;
-            Projectile.ownerHitCheck = true; // Prevents hits through tiles. Most melee weapons that use projectiles have this
-            Projectile.extraUpdates = 0; // Update 1+extraUpdates times per tick
-            Projectile.timeLeft = 360; // This value does not matter since we manually kill it earlier, it just has to be higher than the duration we use in AI
+            Projectile.ownerHitCheck = true; 
+            Projectile.extraUpdates = 0; 
+            Projectile.timeLeft = 360; 
 
         }
 
@@ -40,7 +40,7 @@ namespace upstage.Content.Projectiles
 
             foreach (Player other in Main.player)
             {
-                if (other.active && !other.dead && other.whoAmI != owner.whoAmI)
+                if (!other.dead && other.whoAmI != owner.whoAmI)
                 {
                     if (Projectile.Hitbox.Intersects(other.Hitbox) && !healed)
                     {
