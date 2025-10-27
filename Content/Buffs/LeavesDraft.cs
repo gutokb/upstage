@@ -36,6 +36,10 @@ namespace upstage.Content.Buffs
             int offsetY = player.height;
             for(int i = 0; i<10; i++)
             {
+                if (i % 2 == 0)
+                {
+                    Gore g = Gore.NewGoreDirect(player.GetSource_FromThis(), player.position + new Vector2(0, offsetY), -player.velocity * 0.5f, GoreID.TreeLeaf_Normal);
+                }
                 Dust d = Dust.NewDustDirect(player.position + new Vector2(0, offsetY), player.width, player.height, DustID.GrassBlades,-player.velocity.X * 0.5f, player.velocity.Y * 0.5f);
             }
         }

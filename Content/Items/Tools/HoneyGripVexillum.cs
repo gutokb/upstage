@@ -8,7 +8,7 @@ using upstage.Content.Buffs;
 namespace upstage.Content.Items.Tools
 {
 
-    public class CometSpeedVexillum : ModItem
+    public class HoneyGripVexillum : ModItem
     {
 
         public int MoraleCost = 20;
@@ -28,7 +28,7 @@ namespace upstage.Content.Items.Tools
         public override bool? UseItem(Player player)
         {
             Morale MoralePlayer = player.GetModPlayer<Morale>();
-            int buffType = ModContent.BuffType<CometSpeed>();
+            int buffType = ModContent.BuffType<HoneyGrip>();
             int buffDuration = (int)(60 * 30 * MoralePlayer.MoraleBuffDuration);
             int radius = 800;
 
@@ -41,7 +41,7 @@ namespace upstage.Content.Items.Tools
                         float distance = Vector2.Distance(player.Center, other.Center);
                         if (distance < radius)
                         {
-                            MoralePlayer.Buffother(other,buffType, buffDuration, 1);
+                            MoralePlayer.Buffother(other,buffType, buffDuration, 2);
                         }
                     }
                 }

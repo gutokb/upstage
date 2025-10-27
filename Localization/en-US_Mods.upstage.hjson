@@ -65,6 +65,16 @@ Items: {
 		DisplayName: Cupid Bow
 		Tooltip: ""
 	}
+
+	CometSpeedVexillum: {
+		DisplayName: Comet Speed Vexillum
+		Tooltip: ""
+	}
+
+	HoneyGripVexillum: {
+		DisplayName: Honey Grip Vexillum
+		Tooltip: ""
+	}
 }
 
 Buffs: {
@@ -96,6 +106,16 @@ Buffs: {
 	StarSpeed: {
 		DisplayName: Star Speed
 		Description: Mods.upstage.Buffs.StarSpeed.Description
+	}
+
+	CometSpeed: {
+		DisplayName: Comet Speed
+		Description: Mods.upstage.Buffs.CometSpeed.Description
+	}
+
+	HoneyGrip: {
+		DisplayName: Honey Grip
+		Description: Mods.upstage.Buffs.HoneyGrip.Description
 	}
 }
 

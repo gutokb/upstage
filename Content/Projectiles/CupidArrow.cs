@@ -56,7 +56,7 @@ namespace upstage.Content.Projectiles
                 }
             }
 
-            Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;
+            Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver4;
         }
 
     }
