@@ -61,5 +61,10 @@ namespace upstage.Content.Items.Tools
             }
             return false;
         }
+
+        public override Vector2? HoldoutOffset()
+        {
+            return new Vector2(-40f, -10f); 
+        }
     }
 }

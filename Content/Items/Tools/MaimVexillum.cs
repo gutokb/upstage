@@ -43,7 +43,7 @@ namespace upstage.Content.Items.Tools
                         float distance = Vector2.Distance(player.Center, other.Center);
                         if (distance < radius)
                         {
-                            other.AddBuff(buffType, buffDuration);
+                            MoralePlayer.Buffother(other,buffType, buffDuration, 0);
                         }
                     }
                 }

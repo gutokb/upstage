@@ -23,8 +23,22 @@ namespace upstage.Common.Players
         private HashSet<int> NearMissCandidates = new HashSet<int>();
         private HashSet<int> NearMissHits = new HashSet<int>();
 
+        public List<int> GreenBuffs = new List<int>();
+        public List<int> BlueBuffs = new List<int>();
+        public List<int> RedBuffs = new List<int>();
+
+        public List<int>[] Buffs;
+        public int[] BuffsNum;
+
+        public int gBuffNum = 1, bBuffNum = 1, rBuffNum = 1;
+
         private bool NearMissPossible;
 
+        public Morale()
+        {
+            Buffs = new List<int>[] {RedBuffs, GreenBuffs, BlueBuffs};
+            BuffsNum = new int[] {rBuffNum, gBuffNum, bBuffNum};
+        }
 
         public void GainMorale(int amount)
         {
@@ -142,6 +156,9 @@ namespace upstage.Common.Players
             MoraleCap = 0;
             MoraleTrueMax = MoraleMax;
             MoraleBuffDuration = MoraleBuffDurationDef;
+            GreenBuffs.Clear();
+            BlueBuffs.Clear();
+            RedBuffs.Clear();
         }
 
 
@@ -226,6 +243,16 @@ namespace upstage.Common.Players
             packet.Write(MoraleCur);
             packet.Write(MoraleMax);
             packet.Send(toWho, fromWho);
+        }
+
+        public void Buffother(Player other, int Bufftype, int buffDuration, int Color)
+        {
+           Morale MoraleOther = other.GetModPlayer<Morale>();
+            if (MoraleOther.Buffs[Color].Count >= BuffsNum[0])
+            {
+               other.ClearBuff(MoraleOther.Buffs[Color][0]);
+            }
+            other.AddBuff(Bufftype, buffDuration);
         }
     }
 }

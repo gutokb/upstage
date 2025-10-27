@@ -8,12 +8,13 @@ using upstage.Content.Buffs;
 namespace upstage.Content.Items.Tools
 {
 
-public class LeavesDraftVexillum : ModItem
+    public class LeavesDraftVexillum : ModItem
     {
 
-    public int MoraleCost = 20;
+        public int MoraleCost = 20;
 
-     public override void SetDefaults() {
+        public override void SetDefaults()
+        {
             Item.width = 28;
             Item.height = 30;
             Item.useStyle = ItemUseStyleID.HoldUp;
@@ -41,7 +42,7 @@ public class LeavesDraftVexillum : ModItem
                         float distance = Vector2.Distance(player.Center, other.Center);
                         if (distance < radius)
                         {
-                            other.AddBuff(buffType, buffDuration);
+                            MoralePlayer.Buffother(other,buffType, buffDuration, 1);
                         }
                     }
                 }
@@ -53,7 +54,7 @@ public class LeavesDraftVexillum : ModItem
 
             return true;
         }
-        
+
         public override bool CanUseItem(Player player)
         {
             Morale moralePlayer = player.GetModPlayer<Morale>();
@@ -62,6 +63,19 @@ public class LeavesDraftVexillum : ModItem
                 return base.CanUseItem(player);
             }
             return false;
+        }
+
+        public override void UseStyle(Player player, Rectangle heldItemFrame)
+        {   
+            if(player.direction == 1)
+            {
+                player.itemLocation += new Vector2(-40f, -20f);
+            }
+            else
+            {
+                player.itemLocation += new Vector2(40f, -20f);
+            }
+            base.UseStyle(player, heldItemFrame);
         }
     }
 }

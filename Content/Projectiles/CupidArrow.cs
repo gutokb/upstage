@@ -36,19 +36,22 @@ namespace upstage.Content.Projectiles
 
         public override void AI()
         {
+
+            if (healed == true)
+            {
+                Projectile.Kill();
+            }
             Player owner = Main.player[Projectile.owner];
 
             foreach (Player other in Main.player)
             {
                 if (!other.dead && other.whoAmI != owner.whoAmI)
                 {
-                    if (Projectile.Hitbox.Intersects(other.Hitbox) && !healed)
+                    if (Projectile.Hitbox.Intersects(other.Hitbox))
                     {
                         other.Heal(healAmount);
                         owner.AddBuff(ModContent.BuffType<HealingDebuff>(), 3600);
                         healed = true;
-                        Projectile.Kill();
-                        break;
                     }
                 }
             }

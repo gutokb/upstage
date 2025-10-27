@@ -4,13 +4,17 @@ using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using upstage.Common.Players;
 
 namespace upstage.Content.Buffs
 {
     public class LeavesDraft : ModBuff
-    {
+    { 
+        public int BColor = 1;
         public override void Update(Player player, ref int buffIndex)
         {
+            Morale mother = player.GetModPlayer<Morale>();
+			mother.Buffs[BColor].Add(buffIndex);
             player.GetJumpState<LeavesDraftJump>().Enable();
         }
     }
