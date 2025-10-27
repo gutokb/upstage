@@ -92,6 +92,11 @@ Buffs: {
 		DisplayName: Leaves Draft
 		Description: Mods.upstage.Buffs.LeavesDraft.Description
 	}
+
+	StarSpeed: {
+		DisplayName: Star Speed
+		Description: Mods.upstage.Buffs.StarSpeed.Description
+	}
 }
 
 Projectiles: {
