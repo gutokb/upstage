@@ -5,9 +5,7 @@ using upstage.Common.Players;
 
 namespace upstage.Content.Buffs
 {
-    public class Maim : ModBuff
-    {
-        public class MaimP : ModPlayer
+    public class MaimP : ModPlayer
     {
         public bool Maiming;
         private int Hits = 0;
@@ -19,9 +17,9 @@ namespace upstage.Content.Buffs
             Item holding = Player.HeldItem;
             if (!holding.IsAir)
             {
-                HitsMax = 90/Player.HeldItem.useTime;
+                HitsMax = 90 / Player.HeldItem.useTime;
             }
-            
+
         }
 
 
@@ -53,15 +51,17 @@ namespace upstage.Content.Buffs
             base.ResetEffects();
         }
     }
+    public class Maim : ModBuff
+    {
+
         public int BColor = 0;
         public override void Update(Player player, ref int buffIndex)
         {
             Morale mother = player.GetModPlayer<Morale>();
-            mother.Buffs[BColor].Add(buffIndex);
+            mother.Buffs[BColor].Add(Type);
             MaimP Maimplayer = player.GetModPlayer<MaimP>();
             Maimplayer.Maiming = true;
         }
     }
-    
-     
+
 }

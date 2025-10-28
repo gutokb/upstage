@@ -251,13 +251,8 @@ namespace upstage.Common.Players
             if (MoraleOther.Buffs[Color].Count >= BuffsNum[0])
             {
                 other.ClearBuff(MoraleOther.Buffs[Color][0]);
-               Main.NewText("hi");
             }
             other.AddBuff(Bufftype, buffDuration);
-            foreach(int a in MoraleOther.Buffs[Color])
-            {
-                Main.NewText(a);
-            }
         }
     }
 }
