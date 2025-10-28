@@ -8,7 +8,7 @@ using upstage.Content.Buffs.Aura;
 namespace upstage.Content.Items.Tools.Pendant
 {
 
-public class AcornPendant : ModItem
+public class DiamondPendant : ModItem
     {
     
         
@@ -27,7 +27,7 @@ public class AcornPendant : ModItem
 
         public override bool? UseItem(Player player) {
             Morale MoralePlayer = player.GetModPlayer<Morale>();
-            int buffType = ModContent.BuffType<SproutingAura>();
+            int buffType = ModContent.BuffType<DiamondAura>();
 
             if (MoralePlayer.MoraleTrueMax > 10)
             {
@@ -35,9 +35,6 @@ public class AcornPendant : ModItem
                 MoralePlayer.FarmAura(buffType);
  
             }
-
-
-
             return true;
         }
     }

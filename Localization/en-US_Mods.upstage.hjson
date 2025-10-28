@@ -95,6 +95,41 @@ Items: {
 		DisplayName: Grass Suit Leggings
 		Tooltip: ""
 	}
+
+	AmberPendant: {
+		DisplayName: Amber Pendant
+		Tooltip: ""
+	}
+
+	AmethystPendant: {
+		DisplayName: Amethyst Pendant
+		Tooltip: ""
+	}
+
+	DiamondPendant: {
+		DisplayName: Diamond Pendant
+		Tooltip: ""
+	}
+
+	EmeraldPendant: {
+		DisplayName: Emerald Pendant
+		Tooltip: ""
+	}
+
+	RubyPendant: {
+		DisplayName: Ruby Pendant
+		Tooltip: ""
+	}
+
+	SapphirePendant: {
+		DisplayName: Sapphire Pendant
+		Tooltip: ""
+	}
+
+	TopazPendant: {
+		DisplayName: Topaz Pendant
+		Tooltip: ""
+	}
 }
 
 Buffs: {
@@ -141,6 +176,41 @@ Buffs: {
 	Defile: {
 		DisplayName: Defile
 		Description: Mods.upstage.Buffs.Defile.Description
+	}
+
+	AmberAura: {
+		DisplayName: Amber Aura
+		Description: Mods.upstage.Buffs.AmberAura.Description
+	}
+
+	AmethystAura: {
+		DisplayName: Amethyst Aura
+		Description: Mods.upstage.Buffs.AmethystAura.Description
+	}
+
+	DiamondAura: {
+		DisplayName: Diamond Aura
+		Description: Mods.upstage.Buffs.DiamondAura.Description
+	}
+
+	EmeraldAura: {
+		DisplayName: Emerald Aura
+		Description: Mods.upstage.Buffs.EmeraldAura.Description
+	}
+
+	RubyAura: {
+		DisplayName: Ruby Aura
+		Description: Mods.upstage.Buffs.RubyAura.Description
+	}
+
+	SapphireAura: {
+		DisplayName: Sapphire Aura
+		Description: Mods.upstage.Buffs.SapphireAura.Description
+	}
+
+	TopazAura: {
+		DisplayName: Topaz Aura
+		Description: Mods.upstage.Buffs.TopazAura.Description
 	}
 }
 

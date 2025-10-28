@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;
+using upstage.Common.Players;
 using static upstage.upstage;
 
 namespace upstage.Common.Players
@@ -247,12 +248,23 @@ namespace upstage.Common.Players
 
         public void Buffother(Player other, int Bufftype, int buffDuration, int Color)
         {
-           Morale MoraleOther = other.GetModPlayer<Morale>();
+            Morale MoraleOther = other.GetModPlayer<Morale>();
             if (MoraleOther.Buffs[Color].Count >= BuffsNum[0])
             {
                 other.ClearBuff(MoraleOther.Buffs[Color][0]);
             }
             other.AddBuff(Bufftype, buffDuration);
+        }
+        
+        public void FarmAura(int Bufftype)
+        {
+            AuraP AuraP = Player.GetModPlayer<AuraP>();
+            if (AuraP.Aura)
+            {
+                Player.ClearBuff(AuraP.AuraId);
+            }
+            Player.AddBuff(Bufftype, 180);
+            AuraP.AuraId = Bufftype;
         }
     }
 }

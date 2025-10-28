@@ -8,7 +8,7 @@ using upstage.Content.Buffs.Aura;
 namespace upstage.Content.Items.Tools.Pendant
 {
 
-public class AcornPendant : ModItem
+public class RubyPendant : ModItem
     {
     
         

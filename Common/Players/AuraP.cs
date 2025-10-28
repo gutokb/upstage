@@ -11,6 +11,7 @@ namespace upstage.Common.Players
     {
         private Random rnd = new Random();
         public bool Aura;
+        public int AuraId;
 
         public float PlayerMinDistance = 1000f;
         public float AuraSize;

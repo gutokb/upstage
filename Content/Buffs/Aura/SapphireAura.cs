@@ -4,12 +4,12 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using upstage.Common.Players;
 
-namespace upstage.Content.Buffs
+namespace upstage.Content.Buffs.Aura
 {
-    public class SproutingAura : ModBuff
+    public class SapphireAura : ModBuff
     {
         public int MoraleCap = 20;
-        private int Damage = 6, Size = 200, TimerMax = 60;
+        private int Damage = 10, Size = 200, TimerMax = 60;
         private Dust[] garbagebin = new Dust[75]; 
 
          public override void SetStaticDefaults()
@@ -25,9 +25,9 @@ namespace upstage.Content.Buffs
         {
             Morale mplayer = player.GetModPlayer<Morale>();
             AuraP saplayer = player.GetModPlayer<AuraP>();
-            saplayer.SetAura(6, 200f, 60);
+            saplayer.SetAura(Damage, Size);
             mplayer.MoraleCap = MoraleCap;
-            player.AddBuff(ModContent.BuffType<SproutingAura>(), 2);
+            player.AddBuff(Type, 2);
             for (int i = 0; i < 75; i++)
             {
                 if (garbagebin[i] != null)
