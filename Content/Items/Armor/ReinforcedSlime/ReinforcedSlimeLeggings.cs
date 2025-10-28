@@ -5,10 +5,10 @@ using Terraria.ModLoader;
 using upstage.Common.Players;
 
 
-namespace upstage.Content.Items.Armor
+namespace upstage.Content.Items.Armor.ReinforcedSlime
 {
-    [AutoloadEquip(EquipType.Body)]
-    public class ReinforcedSlimeBreastplate : ModItem
+    [AutoloadEquip(EquipType.Legs)]
+    public class ReinforcedSlimeLeggings : ModItem
     {
         public override void SetDefaults()
         {
@@ -16,7 +16,7 @@ namespace upstage.Content.Items.Armor
             Item.height = 18;
             Item.value = Item.sellPrice(silver: 10);
             Item.rare = ItemRarityID.Green;
-            Item.defense = 5;
+            Item.defense = 4;
         }
 
 
@@ -36,4 +36,3 @@ namespace upstage.Content.Items.Armor
     }
 
 }
-

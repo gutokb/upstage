@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using upstage.Common.Players; 
-namespace upstage.Content.Items.Tools
+namespace upstage.Content.Items.Tools.Orb
 {
     public class CopperOrb : ModItem
     {

@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 using upstage.Common.Players;
 using upstage.Content.Buffs;
 
-namespace upstage.Content.Items.Tools
+namespace upstage.Content.Items.Tools.Pendant
 {
 
 public class AcornPendant : ModItem

@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 using upstage.Common.Players;
 using upstage.Content.Buffs;
 
-namespace upstage.Content.Items.Tools
+namespace upstage.Content.Items.Tools.Warbanner
 {
 
     public class DefileVexillum : ModItem

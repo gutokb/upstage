@@ -7,8 +7,8 @@ namespace upstage.Content.Items.Tools
     public class CrystalOrb : ModItem
     {
 
-        private int ParryGain = 20;
-        private int MoraleCost = 10;
+        private int ParryGain = 0;
+        private int MoraleCost = 20;
         private float ParryAmount = 1f;
 
         public override void SetDefaults()

@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 using upstage.Common.Players;
 
 
-namespace upstage.Content.Items.Armor
+namespace upstage.Content.Items.Armor.ReinforcedSlime
 {
     [AutoloadEquip(EquipType.Head)]
     public class ReinforcedSlimeHelmet : ModItem

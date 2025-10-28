@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 using upstage.Common.Players;
 using upstage.Content.Debuffs;
 
-namespace upstage.Content.Items.Tools
+namespace upstage.Content.Items.Tools.Healing
 {
 	public class IntravenousPotion : ModItem
 	{

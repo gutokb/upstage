@@ -14,7 +14,7 @@ namespace upstage.Common.Players
         public int MoraleCap = 0;
 
         public float MoraleBuffDuration, MoraleBuffDurationDef = 1f;
-        private int MoraleDefMax = 100;
+        private int MoraleDefMax = 0;
 
         public int MoraleMax, MoraleTrueMax;
         private int MoraleRegTimer, NearMissTimer;

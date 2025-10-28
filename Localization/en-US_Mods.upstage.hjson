@@ -75,6 +75,11 @@ Items: {
 		DisplayName: Honey Grip Vexillum
 		Tooltip: ""
 	}
+
+	DefileVexillum: {
+		DisplayName: Defile Vexillum
+		Tooltip: ""
+	}
 }
 
 Buffs: {

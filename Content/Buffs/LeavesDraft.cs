@@ -14,7 +14,7 @@ namespace upstage.Content.Buffs
         public override void Update(Player player, ref int buffIndex)
         {
             Morale mother = player.GetModPlayer<Morale>();
-			mother.Buffs[BColor].Add(buffIndex);
+            mother.Buffs[BColor].Add(Type);
             player.GetJumpState<LeavesDraftJump>().Enable();
         }
     }
