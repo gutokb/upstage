@@ -3,7 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using upstage.Common.Players; // <-- so we can access your Morale class
 
-namespace upstage.Content.Items.Tools
+namespace upstage.Content.Items.Tools.Misc
 {
     public class MoraleResetter : ModItem
     {

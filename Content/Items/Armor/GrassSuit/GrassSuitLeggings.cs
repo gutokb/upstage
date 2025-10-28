@@ -5,10 +5,10 @@ using Terraria.ModLoader;
 using upstage.Common.Players;
 
 
-namespace upstage.Content.Items.Armor.ReinforcedSlime
+namespace upstage.Content.Items.Armor.GrassSuit
 {
-    [AutoloadEquip(EquipType.Body)]
-    public class ReinforcedSlimeBreastplate : ModItem
+    [AutoloadEquip(EquipType.Legs)]
+    public class GrassSuitLeggings : ModItem
     {
         public override void SetDefaults()
         {
@@ -16,13 +16,7 @@ namespace upstage.Content.Items.Armor.ReinforcedSlime
             Item.height = 18;
             Item.value = Item.sellPrice(silver: 10);
             Item.rare = ItemRarityID.Green;
-            Item.defense = 5;
-        }
-
-        public override void UpdateEquip(Player player)
-        {
-            Morale MoralePlayer = player.GetModPlayer<Morale>();
-            MoralePlayer.MoraleTrueMax += 20;
+            Item.defense = 1;
         }
 
 
@@ -42,4 +36,3 @@ namespace upstage.Content.Items.Armor.ReinforcedSlime
     }
 
 }
-

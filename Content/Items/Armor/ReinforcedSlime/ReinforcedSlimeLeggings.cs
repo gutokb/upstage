@@ -19,6 +19,12 @@ namespace upstage.Content.Items.Armor.ReinforcedSlime
             Item.defense = 4;
         }
 
+        public override void UpdateEquip(Player player)
+        {
+            Morale MoralePlayer = player.GetModPlayer<Morale>();
+            MoralePlayer.MoraleTrueMax += 10;
+        }
+
 
         public override void AddRecipes()
         {

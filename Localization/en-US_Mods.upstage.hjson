@@ -80,6 +80,21 @@ Items: {
 		DisplayName: Defile Vexillum
 		Tooltip: ""
 	}
+
+	GrassSuitBreastplate: {
+		DisplayName: Grass Suit Breastplate
+		Tooltip: ""
+	}
+
+	GrassSuitHelmet: {
+		DisplayName: Grass Suit Helmet
+		Tooltip: ""
+	}
+
+	GrassSuitLeggings: {
+		DisplayName: Grass Suit Leggings
+		Tooltip: ""
+	}
 }
 
 Buffs: {
