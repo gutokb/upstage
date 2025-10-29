@@ -15,7 +15,7 @@ namespace upstage.Content.Buffs.Aura
          public override void SetStaticDefaults()
         {
             Main.debuff[Type] = false;      
-            Main.buffNoSave[Type] = false;    
+            Main.buffNoSave[Type] = true;    
             Main.buffNoTimeDisplay[Type] = true; 
                
      
@@ -36,10 +36,10 @@ namespace upstage.Content.Buffs.Aura
                 }
                 
             }
-            for (int i = 0; i < 75; i++) 
+            for (int i = 0; i < 75; i++)      
             {
                 Vector2 speed = Main.rand.NextVector2CircularEdge(1f, 1f);
-                Dust d = Dust.NewDustPerfect(player.Center + speed * Size, DustID.FireworkFountain_Green, Vector2.Zero, newColor: Color.LawnGreen, Scale: 1.5f);
+                Dust d = Dust.NewDustPerfect(player.Center + speed * Size, DustID.GemAmber, Vector2.Zero, Scale: 1.5f);
                 garbagebin[i] = d;
                 d.noGravity = true;
             }

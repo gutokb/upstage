@@ -7,9 +7,9 @@ namespace upstage.Content.Items.Tools.Orb
     public class CopperOrb : ModItem
     {
 
-        private int ParryGain = 5;
-        private int MoraleCost = 7;
-        private float ParryAmount = 0.3f;
+        private int ParryGain = 10;
+        private int MoraleCost = 10;
+        private float ParryAmount = 0.5f;
 
         public override void SetDefaults()
         {

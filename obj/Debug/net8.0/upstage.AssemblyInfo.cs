@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("upstage")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+39df627297e48d7f3656b343418d36e4ed43f6a7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a4ee87f68533bd8d108bb6ccd7bf3295f098ac82")]
 [assembly: System.Reflection.AssemblyProductAttribute("upstage")]
 [assembly: System.Reflection.AssemblyTitleAttribute("upstage")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

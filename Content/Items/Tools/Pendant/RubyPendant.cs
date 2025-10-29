@@ -27,7 +27,7 @@ public class RubyPendant : ModItem
 
         public override bool? UseItem(Player player) {
             Morale MoralePlayer = player.GetModPlayer<Morale>();
-            int buffType = ModContent.BuffType<SproutingAura>();
+            int buffType = ModContent.BuffType<RubyAura>();
 
             if (MoralePlayer.MoraleTrueMax > 10)
             {
