@@ -4,11 +4,11 @@ using Terraria.ModLoader;
 using upstage.Common.Players; 
 namespace upstage.Content.Items.Tools.Orb
 {
-    public class CopperOrb : ModItem
+    public class TungstenOrb : ModItem
     {
 
-        private int ParryGain = 10;
-        private int MoraleCost = 10;
+        private int ParryGain = 9;
+        private int MoraleCost = 13;
         private float ParryAmount = 0.5f;
 
         public override void SetDefaults()

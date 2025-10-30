@@ -130,6 +130,41 @@ Items: {
 		DisplayName: Topaz Pendant
 		Tooltip: ""
 	}
+
+	GoldOrb: {
+		DisplayName: Gold Orb
+		Tooltip: ""
+	}
+
+	IronOrb: {
+		DisplayName: Iron Orb
+		Tooltip: ""
+	}
+
+	LeadOrb: {
+		DisplayName: Lead Orb
+		Tooltip: ""
+	}
+
+	PlatinumOrb: {
+		DisplayName: Platinum Orb
+		Tooltip: ""
+	}
+
+	SilverOrb: {
+		DisplayName: Silver Orb
+		Tooltip: ""
+	}
+
+	TinOrb: {
+		DisplayName: Tin Orb
+		Tooltip: ""
+	}
+
+	TungstenOrb: {
+		DisplayName: Tungsten Orb
+		Tooltip: ""
+	}
 }
 
 Buffs: {
