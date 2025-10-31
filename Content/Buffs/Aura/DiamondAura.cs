@@ -9,7 +9,7 @@ namespace upstage.Content.Buffs.Aura
     public class DiamondAura : ModBuff
     {
         public int MoraleCap = 20;
-        private int Damage = 13, Size = 260, TimerMax = 60;
+        private int Damage = 15, Size = 260, TimerMax = 60;
         private Dust[] garbagebin = new Dust[100]; 
 
          public override void SetStaticDefaults()

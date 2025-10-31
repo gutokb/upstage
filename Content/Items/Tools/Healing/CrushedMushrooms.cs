@@ -12,7 +12,7 @@ namespace upstage.Content.Items.Tools.Healing
 
         float healRadius = 50f;
         int healAmount = 15;
-        int moraleCost = 30;
+        int moraleCost = 15;
         public override void SetDefaults() {
             Item.width = 20;
             Item.height = 20;
@@ -28,7 +28,7 @@ namespace upstage.Content.Items.Tools.Healing
         public override bool? UseItem(Player player)
         {
             Morale moralePlayer = player.GetModPlayer<Morale>();
-            moralePlayer.UseMorale(30);
+            moralePlayer.UseMorale(moraleCost);
             player.AddBuff(ModContent.BuffType<HealingDebuff>(), 3600);
             
             for (int i = 0; i < 50; i++) 
