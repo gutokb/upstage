@@ -253,3 +253,5 @@ Projectiles: {
 	IVPotionProjectile.DisplayName: I V Potion Projectile
 	CupidArrow.DisplayName: Cupid Arrow
 }
+
+DamageClasses.MoraleDamageClass.DisplayName: Morale Damage Class

@@ -10,9 +10,7 @@ namespace upstage.Content.Projectiles
 {
     public class CupidArrow : ModProjectile
     {
-        private bool healed = false;
-
-
+        
         public const int healAmount = 50;
 
 
@@ -29,15 +27,16 @@ namespace upstage.Content.Projectiles
             Projectile.scale = 1f;
             Projectile.DamageType = DamageClass.Ranged;
             Projectile.ownerHitCheck = true; 
-            Projectile.extraUpdates = 0; 
-            Projectile.timeLeft = 360; 
+            Projectile.extraUpdates = 0;
+            Projectile.timeLeft = 360;
+            Projectile.ai[0] = 0;
 
         }
 
         public override void AI()
         {
 
-            if (healed == true)
+            if (Projectile.ai[0] == 1)
             {
                 Projectile.Kill();
             }
@@ -47,13 +46,17 @@ namespace upstage.Content.Projectiles
             {
                 if (!other.dead && other.whoAmI != owner.whoAmI)
                 {
-                    if (Projectile.Hitbox.Intersects(other.Hitbox))
+                    if (Projectile.Hitbox.Intersects(other.Hitbox) && Projectile.ai[0] == 0)
                     {
                         other.Heal(healAmount);
                         owner.AddBuff(ModContent.BuffType<HealingDebuff>(), 3600);
-                        healed = true;
+                        Projectile.ai[0] = 5;
                     }
                 }
+            }
+            if(Projectile.ai[0] > 1)
+            {
+                Projectile.ai[0]--;
             }
 
             Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver4;
