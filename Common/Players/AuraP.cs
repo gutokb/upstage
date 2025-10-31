@@ -1,3 +1,4 @@
+using ExampleMod.Content.DamageClasses;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -65,8 +66,9 @@ namespace upstage.Common.Players
                     {
                         int npcWhoAmI = NearbyEnemies.ElementAt(rnd.Next(0, NearbyEnemies.Count));
                         NPC target = Main.npc[npcWhoAmI];
-                        NPC.HitInfo MaimHit = target.CalculateHitInfo(NearbyPlayer() ? AuraDamage / 5 : AuraDamage, 0);
-                        Player.StrikeNPCDirect(target, MaimHit);
+                        NPC.HitInfo Hit = target.CalculateHitInfo(NearbyPlayer() ? AuraDamage / 5 : AuraDamage, 0);
+                        Hit.DamageType = ModContent.GetInstance<MoraleDamageClass>();
+                        Player.StrikeNPCDirect(target, Hit);
                     }
                     AuraTimer = AuraTimerMax;
                 }

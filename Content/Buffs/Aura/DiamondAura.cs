@@ -14,8 +14,8 @@ namespace upstage.Content.Buffs.Aura
 
          public override void SetStaticDefaults()
         {
-            Main.debuff[Type] = true;      
-            Main.buffNoSave[Type] = false;    
+            Main.debuff[Type] = false;      
+            Main.buffNoSave[Type] = true;    
             Main.buffNoTimeDisplay[Type] = true; 
                
      

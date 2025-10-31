@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using ExampleMod.Content.DamageClasses;
+using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;
@@ -255,7 +256,7 @@ namespace upstage.Common.Players
             }
             other.AddBuff(Bufftype, buffDuration);
         }
-        
+
         public void FarmAura(int Bufftype)
         {
             AuraP AuraP = Player.GetModPlayer<AuraP>();
@@ -265,6 +266,15 @@ namespace upstage.Common.Players
             }
             Player.AddBuff(Bufftype, 180);
             AuraP.AuraId = Bufftype;
+        }
+
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+        {
+            if(hit.DamageType != ModContent.GetInstance<MoraleDamageClass>())
+            {
+                MoraleCur -= MoraleCur < damageDone ? MoraleCur : damageDone;
+            }
+            base.OnHitNPC(target, hit, damageDone);
         }
     }
 }
