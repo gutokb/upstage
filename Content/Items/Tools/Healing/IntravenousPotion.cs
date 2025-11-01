@@ -9,7 +9,7 @@ namespace upstage.Content.Items.Tools.Healing
 {
 	public class IntravenousPotion : ModItem
 	{
-        private int moraleCost = 30;
+        private int moraleCost = 20;
 
 		public override void SetDefaults()
 		{

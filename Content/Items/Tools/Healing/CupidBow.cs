@@ -11,9 +11,7 @@ namespace upstage.Content.Items.Tools.Healing
     public class CupidBow : ModItem
     {
 
-        float healRadius = 50f;
-        int healAmount = 15;
-        int moraleCost = 5;
+        int moraleCost = 15;
         public override void SetDefaults() {
             Item.width = 20;
             Item.height = 20;
