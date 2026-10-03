@@ -2,8 +2,9 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using upstage.Common.ModUtils;
 using upstage.Common.Players;
-using upstage.Content.Debuffs; 
+using upstage.Content.Debuffs;
 
 namespace upstage.Content.Items.Tools.Healing
 {
@@ -27,23 +28,30 @@ namespace upstage.Content.Items.Tools.Healing
 
         public override bool? UseItem(Player player)
         {
-            Morale moralePlayer = player.GetModPlayer<Morale>();
-            moralePlayer.UseMorale(moraleCost);
-            player.AddBuff(ModContent.BuffType<HealingDebuff>(), 3600);
-            
-            for (int i = 0; i < 50; i++) 
+            // Cosmetic, so let every client draw it for whoever used the item.
+            for (int i = 0; i < 50; i++)
             {
                 Vector2 speed = Main.rand.NextVector2Circular(1f, 1f);
                 Dust d = Dust.NewDustPerfect(player.Center, DustID.GoldCritter, speed * 5f, newColor: Color.GreenYellow, Scale: 1f);
                 d.noGravity = true;
             }
 
-            foreach (Player other in Main.player)
+            // UseItem runs for every player on every client, so the morale spend and the heal have
+            // to be limited to the client that actually used the item.
+            if (!PlayerUtils.IsLocalAuthority(player.whoAmI))
+                return true;
+
+            Morale moralePlayer = player.GetModPlayer<Morale>();
+            moralePlayer.UseMorale(moraleCost);
+            player.AddBuff(ModContent.BuffType<HealingDebuff>(), 3600);
+
+            foreach (Player other in Main.ActivePlayers)
             {
+                if (!PlayerUtils.CanHeal(player, other, includeSelf: true))
+                    continue;
+
                 if (Vector2.Distance(other.Center, player.Center) < healRadius)
-                {
-                    other.Heal(healAmount);
-                }
+                    PlayerUtils.HealPlayer(other, healAmount);
             }
 
             return true;
@@ -51,15 +59,14 @@ namespace upstage.Content.Items.Tools.Healing
 
         public override bool CanUseItem(Player player)
         {
+            // Remote copies of morale lag behind their owner, so don't let a stale value veto a
+            // use the owning client already decided to make.
+            if (!PlayerUtils.IsLocalAuthority(player.whoAmI))
+                return true;
+
             Morale moralePlayer = player.GetModPlayer<Morale>();
-            if (moralePlayer.CanUseMorale(moraleCost))
-            {
-                if (!player.HasBuff(ModContent.BuffType<HealingDebuff>()))
-                {
-                    return true;
-                }
-            }
-            return false;
+            return moralePlayer.CanUseMorale(moraleCost)
+                && !player.HasBuff(ModContent.BuffType<HealingDebuff>());
         }
     }
 }

@@ -19,6 +19,11 @@ namespace upstage
 			MoraleUpdate
 		}
 
+		// Healing deliberately does NOT go through a custom packet. It uses vanilla's
+		// MessageID.SpiritHeal via upstage.Common.ModUtils.PlayerUtils.HealPlayer, because the
+		// server relaying that message is what makes the target's own client - the only authority
+		// on its statLife - actually apply the heal instead of reverting it.
+
 		public override void HandlePacket(BinaryReader reader, int whoAmI)
 		{
 			MessageType msgType = (MessageType)reader.ReadByte();
@@ -30,7 +35,12 @@ namespace upstage
 					int newMorale = reader.ReadInt32();
 					int newMoraleMax = reader.ReadInt32();
 
-					if (Main.player[playerID].TryGetModPlayer(out Morale moralePlayer))
+					// A client may only report its own morale; the server trusts the connection,
+					// not the payload.
+					if (Main.netMode == NetmodeID.Server)
+						playerID = (byte)whoAmI;
+
+					if (playerID < Main.maxPlayers && Main.player[playerID].TryGetModPlayer(out Morale moralePlayer))
 					{
 						moralePlayer.MoraleCur = newMorale;
 						moralePlayer.MoraleMax = newMoraleMax;

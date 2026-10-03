@@ -3,6 +3,7 @@ using Terraria;
 using Terraria.Enums;
 using Terraria.ModLoader;
 using upstage.Content.Debuffs;
+using upstage.Common.ModUtils;
 
 namespace upstage.Content.Projectiles
 {
@@ -18,6 +19,8 @@ namespace upstage.Content.Projectiles
 
 		// The "width" of the blade
 		public float CollisionWidth => 10f * Projectile.scale;
+
+		
 
 		public int Timer {
 			get => (int)Projectile.ai[0];
@@ -56,17 +59,24 @@ namespace upstage.Content.Projectiles
 				player.heldProj = Projectile.whoAmI;
 			}
 			
-			foreach(Player other in Main.player)
-            {
-                if (other != player && (bool)Colliding(Projectile.Hitbox, other.Hitbox) && !healed) 
-                {
-					other.Heal(healAmount);
+			// AI runs on every client and on the server. Only the owner may decide that the jab
+			// connected, otherwise each machine heals the target once over.
+			if (!healed && PlayerUtils.IsLocalAuthority(Projectile.owner))
+			{
+				foreach (Player other in Main.ActivePlayers)
+				{
+					if (!PlayerUtils.CanHeal(player, other))
+						continue;
+
+					if (Colliding(Projectile.Hitbox, other.Hitbox) != true)
+						continue;
+
+					PlayerUtils.HealPlayer(other, healAmount);
 					player.AddBuff(ModContent.BuffType<HealingDebuff>(), 3600);
 					healed = true;
-                }
-            }
-
-
+					break;
+				}
+			}
 
             Projectile.Opacity = Utils.GetLerpValue(0f, FadeInDuration, Timer, clamped: true) * Utils.GetLerpValue(TotalDuration, TotalDuration - FadeOutDuration, Timer, clamped: true);
 

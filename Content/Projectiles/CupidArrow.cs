@@ -5,6 +5,7 @@ using Terraria.Enums;
 using Terraria.ID;
 using Terraria.ModLoader;
 using upstage.Content.Debuffs;
+using upstage.Common.ModUtils;
 
 namespace upstage.Content.Projectiles
 {
@@ -29,37 +30,34 @@ namespace upstage.Content.Projectiles
             Projectile.ownerHitCheck = true; 
             Projectile.extraUpdates = 0;
             Projectile.timeLeft = 360;
-            Projectile.ai[0] = 0;
-
         }
 
         public override void AI()
         {
+            Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver4;
 
-            if (Projectile.ai[0] == 1)
-            {
-                Projectile.Kill();
-            }
+            // AI runs on every client and on the server. Only the owner may decide that the arrow
+            // connected, otherwise each machine heals the target once over.
+            if (!PlayerUtils.IsLocalAuthority(Projectile.owner))
+                return;
+
             Player owner = Main.player[Projectile.owner];
 
-            foreach (Player other in Main.player)
+            foreach (Player other in Main.ActivePlayers)
             {
-                if (!other.dead && other.whoAmI != owner.whoAmI)
-                {
-                    if (Projectile.Hitbox.Intersects(other.Hitbox) && Projectile.ai[0] == 0)
-                    {
-                        other.Heal(healAmount);
-                        owner.AddBuff(ModContent.BuffType<HealingDebuff>(), 3600);
-                        Projectile.ai[0] = 5;
-                    }
-                }
-            }
-            if(Projectile.ai[0] > 1)
-            {
-                Projectile.ai[0]--;
-            }
+                if (!PlayerUtils.CanHeal(owner, other))
+                    continue;
 
-            Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver4;
+                if (!Projectile.Hitbox.Intersects(other.Hitbox))
+                    continue;
+
+                PlayerUtils.HealPlayer(other, healAmount);
+                owner.AddBuff(ModContent.BuffType<HealingDebuff>(), 3600);
+
+                // Kill() sends MessageID.KillProjectile, so the arrow disappears everywhere.
+                Projectile.Kill();
+                return;
+            }
         }
 
     }

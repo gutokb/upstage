@@ -2,6 +2,7 @@ using upstage.Content.Projectiles;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using upstage.Common.ModUtils;
 using upstage.Common.Players;
 using upstage.Content.Debuffs;
 
@@ -35,26 +36,30 @@ namespace upstage.Content.Items.Tools.Healing
 
         public override bool? UseItem(Player player)
 		{
+			// Morale belongs to the owning client. UseItem runs for every player on every client,
+			// so spending it anywhere else drains a copy we don't own.
+			if (!PlayerUtils.IsLocalAuthority(player.whoAmI))
+				return true;
+
 			Morale moralePlayer = player.GetModPlayer<Morale>();
 			if (moralePlayer.UseMorale(moraleCost))
 			{
 				return base.UseItem(player);
 			}
 			return false;
-            
+
         }
-		
+
 		public override bool CanUseItem(Player player)
         {
+			// Remote copies of morale lag behind their owner, so don't let a stale value veto a
+			// swing the owning client already decided to make.
+			if (!PlayerUtils.IsLocalAuthority(player.whoAmI))
+				return true;
+
             Morale moralePlayer = player.GetModPlayer<Morale>();
-            if (moralePlayer.MoraleCur >= moraleCost)
-            {
-                if (!player.HasBuff(ModContent.BuffType<HealingDebuff>()))
-                {
-                    return true;
-                }
-            }
-            return false;
+            return moralePlayer.CanUseMorale(moraleCost)
+				&& !player.HasBuff(ModContent.BuffType<HealingDebuff>());
         }
 
 		
