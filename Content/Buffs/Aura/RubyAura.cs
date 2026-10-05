@@ -6,9 +6,9 @@ using upstage.Common.Players;
 
 namespace upstage.Content.Buffs.Aura
 {
-    public class RubyAura : ModBuff
+    public class RubyAura : ModBuff, IAuraBuff
     {
-        public int MoraleCap = 20;
+        public int MoraleCap { get; } = 20;
         private int Damage = 12, Size = 250, TimerMax = 60;
         private Dust[] garbagebin = new Dust[100]; 
 

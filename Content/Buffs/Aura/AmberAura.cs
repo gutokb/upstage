@@ -6,10 +6,10 @@ using upstage.Common.Players;
 
 namespace upstage.Content.Buffs.Aura
 {
-    public class AmberAura : ModBuff
+    public class AmberAura : ModBuff, IAuraBuff
     {
-        public int MoraleCap = 20;
-        private int Damage = 16, Size = 140, TimerMax = 60;
+        public int MoraleCap { get; } = 20;
+        private int Damage = 15, Size = 260, TimerMax = 60;
         private Dust[] garbagebin = new Dust[75]; 
 
          public override void SetStaticDefaults()

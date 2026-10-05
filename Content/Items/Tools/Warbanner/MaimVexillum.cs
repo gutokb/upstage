@@ -3,6 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using upstage.Common.Players;
+using upstage.Common.ModUtils;
 using upstage.Content.Buffs;
 
 namespace upstage.Content.Items.Tools.Warbanner
@@ -29,6 +30,11 @@ namespace upstage.Content.Items.Tools.Warbanner
 
         public override bool? UseItem(Player player)
         {
+            // Morale and the buff both belong to the user's client. Running this on every client would
+            // drain morale from copies the user doesn't own and apply the buff from several machines.
+            if (!PlayerUtils.IsLocalAuthority(player.whoAmI))
+                return true;
+
             Morale MoralePlayer = player.GetModPlayer<Morale>();
             int buffType = ModContent.BuffType<Maim>();
             int buffDuration = (int)(60 * 20 * MoralePlayer.MoraleBuffDuration);
@@ -43,19 +49,20 @@ namespace upstage.Content.Items.Tools.Warbanner
                         float distance = Vector2.Distance(player.Center, other.Center);
                         if (distance < radius)
                         {
-                            MoralePlayer.Buffother(other,buffType, buffDuration, 0);
+                            MoralePlayer.Buffother(other, buffType, buffDuration);
                         }
                     }
                 }
             }
-
-
 
             return true;
         }
 
         public override bool CanUseItem(Player player)
         {
+            if (!PlayerUtils.IsLocalAuthority(player.whoAmI))
+                return true;
+
             Morale moralePlayer = player.GetModPlayer<Morale>();
             if (moralePlayer.CanUseMorale(MoraleCost))
             {

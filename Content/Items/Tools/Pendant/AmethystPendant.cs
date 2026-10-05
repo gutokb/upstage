@@ -29,7 +29,7 @@ public class AmethystPendant : ModItem
             Morale MoralePlayer = player.GetModPlayer<Morale>();
             int buffType = ModContent.BuffType<AmethystAura>();
 
-            if (MoralePlayer.MoraleTrueMax > 10)
+            if (MoralePlayer.CanSustainAura(buffType))
             {
 
                 MoralePlayer.FarmAura(buffType);

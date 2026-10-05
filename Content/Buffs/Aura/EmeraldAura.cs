@@ -6,9 +6,9 @@ using upstage.Common.Players;
 
 namespace upstage.Content.Buffs.Aura
 {
-    public class EmeraldAura : ModBuff
+    public class EmeraldAura : ModBuff, IAuraBuff
     {
-        public int MoraleCap = 20;
+        public int MoraleCap { get; } = 20;
         private int Damage =11, Size = 240, TimerMax = 60;
         private Dust[] garbagebin = new Dust[90]; 
 

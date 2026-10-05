@@ -29,7 +29,7 @@ public class DiamondPendant : ModItem
             Morale MoralePlayer = player.GetModPlayer<Morale>();
             int buffType = ModContent.BuffType<DiamondAura>();
 
-            if (MoralePlayer.MoraleTrueMax > 10)
+            if (MoralePlayer.CanSustainAura(buffType))
             {
 
                 MoralePlayer.FarmAura(buffType);

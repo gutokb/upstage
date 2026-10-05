@@ -34,6 +34,7 @@ namespace upstage
 					byte playerID = reader.ReadByte();
 					int newMorale = reader.ReadInt32();
 					int newMoraleMax = reader.ReadInt32();
+					int[] newSlots = Morale.ReadBannerSlots(reader);
 
 					// A client may only report its own morale; the server trusts the connection,
 					// not the payload.
@@ -44,6 +45,7 @@ namespace upstage
 					{
 						moralePlayer.MoraleCur = newMorale;
 						moralePlayer.MoraleMax = newMoraleMax;
+						moralePlayer.SetBannerSlots(newSlots);
 
 						if (Main.netMode == NetmodeID.Server)
 						{
@@ -53,6 +55,7 @@ namespace upstage
 							packet.Write(playerID);
 							packet.Write(newMorale);
 							packet.Write(newMoraleMax);
+							moralePlayer.WriteBannerSlots(packet);
 							packet.Send(-1, whoAmI);
 						}
 					}

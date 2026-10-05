@@ -36,7 +36,7 @@ namespace upstage.Content.Items.Armor.GrassSuit
 
         public override void UpdateArmorSet(Player player)
         {
-            player.moveSpeed += 0.8f;
+            player.moveSpeed += 0.08f;
             player.accRunSpeed = 6f;
         }
 

@@ -51,14 +51,13 @@ namespace upstage.Content.Buffs
             base.ResetEffects();
         }
     }
-    public class Maim : ModBuff
+    public class Maim : ModBuff, IBannerBuff
     {
+        public int BannerColor => 0;
 
-        public int BColor = 0;
+
         public override void Update(Player player, ref int buffIndex)
         {
-            Morale mother = player.GetModPlayer<Morale>();
-            mother.Buffs[BColor].Add(Type);
             MaimP Maimplayer = player.GetModPlayer<MaimP>();
             Maimplayer.Maiming = true;
         }

@@ -21,13 +21,12 @@ namespace upstage.Content.Buffs
             cometspeeding = false;
         }
     }
-	public class CometSpeed : ModBuff
+	public class CometSpeed : ModBuff, IBannerBuff
 	{
-		private int BColor = 1;
+	    public int BannerColor => 1;
+
 		public override void Update(Player player, ref int buffIndex) {
-            Morale mother = player.GetModPlayer<Morale>();
             CometSpeedP sp = player.GetModPlayer<CometSpeedP>();
-            mother.Buffs[BColor].Add(Type);
             sp.cometspeeding = true;
 		}
 	}

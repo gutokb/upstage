@@ -75,14 +75,13 @@ namespace upstage.Content.Buffs
             }
         }
     }
-    public class Defile : ModBuff
+    public class Defile : ModBuff, IBannerBuff
     {
+        public int BannerColor => 0;
 
-        public int BColor = 0;
+
         public override void Update(Player player, ref int buffIndex)
         {
-            Morale mother = player.GetModPlayer<Morale>();
-            mother.Buffs[BColor].Add(Type);
             DefileP Defileplayer = player.GetModPlayer<DefileP>();
             Defileplayer.defiling = true;
         }

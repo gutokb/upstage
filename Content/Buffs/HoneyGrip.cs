@@ -34,13 +34,12 @@ namespace upstage.Content.Buffs
             honeying = false;
         }
     }
-	public class HoneyGrip : ModBuff
+	public class HoneyGrip : ModBuff, IBannerBuff
 	{
-		private int BColor = 2;
+	    public int BannerColor => 2;
+
 		public override void Update(Player player, ref int buffIndex) {
-            Morale mother = player.GetModPlayer<Morale>();
             HoneyGripP sp = player.GetModPlayer<HoneyGripP>();
-            mother.Buffs[BColor].Add(Type);
             sp.honeying = true;
 		}
 	}

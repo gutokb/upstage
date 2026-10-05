@@ -260,3 +260,4 @@ Projectiles: {
 }
 
 DamageClasses.MoraleDamageClass.DisplayName: Morale Damage Class
+Keybinds.Parry.DisplayName: Parry

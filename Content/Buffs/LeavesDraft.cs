@@ -8,13 +8,12 @@ using upstage.Common.Players;
 
 namespace upstage.Content.Buffs
 {
-    public class LeavesDraft : ModBuff
-    { 
-        public int BColor = 1;
+    public class LeavesDraft : ModBuff, IBannerBuff
+    {
+        public int BannerColor => 1;
+
         public override void Update(Player player, ref int buffIndex)
         {
-            Morale mother = player.GetModPlayer<Morale>();
-            mother.Buffs[BColor].Add(Type);
             player.GetJumpState<LeavesDraftJump>().Enable();
         }
     }

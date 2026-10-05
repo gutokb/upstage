@@ -8,6 +8,22 @@ using Terraria.ModLoader;
 
 namespace upstage.Common.Players
 {
+    /// <summary>
+    /// Implemented by every aura buff so the item that grants the aura can read what the aura will
+    /// actually cost before granting it.
+    /// <para/>
+    /// Without this the pendants gated on a hardcoded morale total that had nothing to do with the
+    /// cap they were about to impose, which let a player start an aura that capped away every point
+    /// of morale they had.
+    /// </summary>
+    public interface IAuraBuff
+    {
+        /// <summary>
+        /// How much of <see cref="Morale.MoraleTrueMax"/> this aura caps away while it is active.
+        /// </summary>
+        int MoraleCap { get; }
+    }
+
     public class AuraP : ModPlayer
     {
         private Random rnd = new Random();
