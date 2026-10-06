@@ -170,6 +170,26 @@ Items: {
 		DisplayName: Dark Ritual
 		Tooltip: ""
 	}
+
+	NaturalSpikesVexillum: {
+		DisplayName: Natural Spikes Vexillum
+		Tooltip: ""
+	}
+
+	GoblinSnack: {
+		DisplayName: Goblin Snack
+		Tooltip: ""
+	}
+
+	WallChicken: {
+		DisplayName: Wall Chicken
+		Tooltip: ""
+	}
+
+	ObsidianSharpnessVexillum: {
+		DisplayName: Obsidian Sharpness Vexillum
+		Tooltip: ""
+	}
 }
 
 Buffs: {
@@ -252,11 +272,22 @@ Buffs: {
 		DisplayName: Topaz Aura
 		Description: Mods.upstage.Buffs.TopazAura.Description
 	}
+
+	NaturalSpikes: {
+		DisplayName: Natural Spikes
+		Description: Mods.upstage.Buffs.NaturalSpikes.Description
+	}
+
+	ObsidianSharpness: {
+		DisplayName: Obsidian Sharpness
+		Description: Mods.upstage.Buffs.ObsidianSharpness.Description
+	}
 }
 
 Projectiles: {
 	IVPotionProjectile.DisplayName: I V Potion Projectile
 	CupidArrow.DisplayName: Cupid Arrow
+	NaturalSpike.DisplayName: Natural Spike
 }
 
 DamageClasses.MoraleDamageClass.DisplayName: Morale Damage Class

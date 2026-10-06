@@ -8,7 +8,7 @@ namespace upstage.Content.Items.Tools.Orb
     {
         public override int MoraleCost => 20;
         public override float ParryAmount => 1f;
-        public override int ParryGain => 0;
+        public override int ParryGain => 15;
         public override bool SpawnsGore => false;
 
         public override void SetDefaults()

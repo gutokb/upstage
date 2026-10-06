@@ -25,7 +25,7 @@ namespace upstage.Common.Players
 		public abstract int ParryGain { get; }
 
 		/// <summary>Ticks the parry stays up; also the cooldown before the next parry.</summary>
-		public virtual int ParryDuration => 20;
+		public virtual int ParryDuration => 10;
 
 		public virtual bool SpawnsGore => true;
 

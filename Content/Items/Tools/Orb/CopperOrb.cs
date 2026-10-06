@@ -6,9 +6,9 @@ namespace upstage.Content.Items.Tools.Orb
 {
     public class CopperOrb : OrbItem
     {
-        public override int MoraleCost => 7;
+        public override int MoraleCost => 5;
         public override float ParryAmount => 0.3f;
-        public override int ParryGain => 5;
+        public override int ParryGain => 7;
 
         public override void SetDefaults()
         {
